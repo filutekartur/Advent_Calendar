@@ -4,7 +4,7 @@ from django.db import models
 
 class day(models.Model):
     days = range(1,25)
-    day = models.SmallIntegerField(blank=False,max_length=2,choices=days,unique=True)
+    day = models.SmallIntegerField(blank=False,choices=days,unique=True)
     is_unlocked = models.BooleanField(blank=False)
     award_quote = models.CharField(blank=True)
     award_image = models.CharField(blank=True)
