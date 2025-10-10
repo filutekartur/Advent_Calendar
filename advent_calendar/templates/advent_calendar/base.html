@@ -1,0 +1,10 @@
+<head>
+    <title>{% block title %}Your advent calendar{% endblock %}</title>
+</head>
+<p>
+  <a href="{% url 'adv_calendar:index' %}">Home</a> - 
+  <a href="{% url 'adv_calendar:calendar' %}">Calendar</a>
+</p>
+{% block content %}{% endblock %}
+
+
