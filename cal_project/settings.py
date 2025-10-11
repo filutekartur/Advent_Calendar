@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #my apps
     'advent_calendar',
+    'accounts',
     #django apps
     'django.contrib.admin',
     'django.contrib.auth',
