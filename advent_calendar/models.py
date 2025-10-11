@@ -10,4 +10,4 @@ class day(models.Model):
     award_image = models.CharField(blank=True)
     award_link = models.URLField(max_length=255,blank=True)
     def __str__(self):
-        return self.day
+        return str(self.day)

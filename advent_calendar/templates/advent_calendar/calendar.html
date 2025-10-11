@@ -1,5 +1,10 @@
 {% extends "advent_calendar/base.html" %}
 
 {% block content %}
-<p>Choose your day</p>
+  <p>Choose your day</p>
+  <ul>
+    {% for day in days %}
+      <li>{{ day.id }} - {{ day.award_quote }}</li>
+    {% endfor%}
+  </ul>
 {% endblock %}
