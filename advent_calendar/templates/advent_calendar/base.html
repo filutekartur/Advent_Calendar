@@ -3,7 +3,16 @@
 </head>
 <p>
   <a href="{% url 'adv_calendar:index' %}">Home</a> - 
-  <a href="{% url 'adv_calendar:calendar' %}">Calendar</a>
+  <a href="{% url 'adv_calendar:calendar' %}">Calendar</a> - 
+  {% if user.is_authenticated %}
+    Hi, {{user.username}}
+    <form action="{% url 'accounts:logout' %}" method='post'>
+    {% csrf_token %}
+    <button name='submit'>Log out</button>
+    </form>
+  {% else %}
+    <a href="{% url 'accounts:login' %}" >Login</a>
+  {% endif %}
 </p>
 {% block content %}{% endblock %}
 
