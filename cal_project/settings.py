@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     #my apps
     'advent_calendar',
     'accounts',
+    #3rd party apps
+    'django-bootstrap5',
     #django apps
     'django.contrib.admin',
     'django.contrib.auth',
