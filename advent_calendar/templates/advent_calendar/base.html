@@ -1,20 +1,60 @@
-{% load django_bootstrap5 %}
+<!doctype html>
+<html lang="en">
 <head>
-    <title>{% block title %}Your advent calendar{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Advent calendar</title>
+  {% load static %}
+  {% load django_bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
 </head>
-<p>
-  <a href="{% url 'adv_calendar:index' %}">Home</a> - 
-  <a href="{% url 'adv_calendar:calendar' %}">Calendar</a> - 
-  {% if user.is_authenticated %}
-    Hi, {{user.username}}
-    <form action="{% url 'accounts:logout' %}" method='post'>
-    {% csrf_token %}
-    <button name='submit'>Log out</button>
-    </form>
-  {% else %}
-    <a href="{% url 'accounts:login' %}" >Login</a>
-  {% endif %}
-</p>
-{% block content %}{% endblock %}
+<body>
+<nav class="navbar navbar-expand bg-body-tertiary mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'adv_calendar:index' %}">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'adv_calendar:calendar' %}">Calendar</a>
+        </li>
+      </ul>
+    </div>
+    
+    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+      {% if user.is_authenticated %}
+        <li class="nav-item">
+          <span class="navbar-text me-2">Hello, {{ user.username }}.</span>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'accounts:login' %}">Log in</a>
+        </li>
+      {% endif %}
+
+      {% if user.is_authenticated %}
+          <form action="{% url 'accounts:logout' %}" method='post'>
+            {% csrf_token %}
+            <button name='submit' class='btn btn-outline-secondary btn-sm'>Log out</button>
+          </form>
+        {% endif %}
+
+    </ul>
+  </div>
+</nav>
+  <main class="container">
+    <div class="pb-2 mb-2 border-bottom">
+      {% block page_header %}{% endblock page_header %}
+    </div>
+
+    <div>
+      {% block content %}{% endblock content %}
+    </div>
+  </main>
+</body>
+</html>
 
 

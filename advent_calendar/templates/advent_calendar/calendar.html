@@ -1,10 +1,21 @@
 {% extends "advent_calendar/base.html" %}
+{% load static %}
+{% block page_header %}
+  <h1 class="display-5 text-center">Choose your day</h1>
+{% endblock page_header %}
 
 {% block content %}
-  <p>Choose your day</p>
-  <ul>
-    {% for day in days %}
-      <li>{{ day.id }} - {{ day.award_quote }}</li>
-    {% endfor%}
-  </ul>
+
+<div class="row row-cols-1 row-cols-md-6 g-4">
+  {% for day in days %}
+    <div class="col-sm-6 col-md-3">
+      <div class="card">
+        {% with day.day|stringformat:'s'|add:'.png' as img_src %}
+        <img src="{% static img_src %}" class="card-img-top" alt="...">
+        {% endwith %}
+      </div>
+    </div>
+  {% endfor%}
+</div>
+
 {% endblock %}
