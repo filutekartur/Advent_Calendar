@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class day(models.Model):
+class Day(models.Model):
     days = [(x,x) for x in (range(1,25))]
     day = models.SmallIntegerField(blank=False,choices=days,unique=True)
     is_unlocked = models.BooleanField(blank=False)
