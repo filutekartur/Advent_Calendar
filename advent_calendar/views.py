@@ -11,3 +11,8 @@ def calendar(request):
         days = Day.objects.order_by('day')
         context = {'days': days}
         return render(request,"advent_calendar/calendar.html",context)
+@login_required
+def day(request,d):
+        day = Day.objects.get(day=d)
+        context = {'day': day}
+        return render(request,"advent_calendar/day.html",context)
