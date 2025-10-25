@@ -10,7 +10,7 @@
   {% for day in days %}
     <div class="col-sm-6 col-md-3">
       <div class="card">
-        <a href="{% url 'adv_calendar:index' %}">
+        <a href="{% url 'adv_calendar:day' day.day %}">
         {% with day.day|stringformat:'s'|add:'.png' as img_src %}
         <img src="{% static img_src %}" class="card-img-top" alt="day.day">
         {% endwith %}
