@@ -20,4 +20,4 @@ def day(request,d):
         else:
                 day = Day.objects.get(day=d)
                 context = {'day': day}
-                return render(request,"advent_calendar/day1.html",context)
+                return render(request,"advent_calendar/day.html",context)
