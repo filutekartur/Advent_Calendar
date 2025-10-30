@@ -5,17 +5,24 @@
 {% endblock page_header %}
 
 {% block content %}
+
 <div class="img-thumbnail">
-  {% if day.award_quote %}
-    <p>{{ day.award_quote }}</p>
-  {% elif day.award_image %}
-    {% with "photos/"|add:day.award_image as img_src %}
-      <img src="{% static img_src  %}" class="figure-img img-fluid rounded" alt=""/>
-    {% endwith %}
-  {% elif day.award_link %}
-    <div class="ratio ratio-16x9">
-      <iframe src="{{ day.award_link }}" title="YouTube video" allowfullscreen></iframe>
+    <div class="p-3 shadow bg-white rounded">
+        {% if day.award_quote %}
+            <p>{{ day.award_quote }}</p>
+        {% elif day.award_image %}
+            {% with "photos/"|add:day.award_image as img_src %}
+                <img src="{% static img_src  %}" class="figure-img img-fluid rounded-3" alt=""/>
+            {% endwith %}
+        {% elif day.award_link %}
+            <div class="ratio ratio-16x9">
+                <iframe src="{{ day.award_link }}" title="YouTube video" allowfullscreen></iframe>
+            </div>
+        {% endif %}
     </div>
-    {% endif %}
+
+    <div class="mb-3 border-5"></div>
+
+    <p class="mt-3">{{ day.text }}</p>
 </div>
 {% endblock %}
