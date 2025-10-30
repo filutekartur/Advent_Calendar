@@ -130,3 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'adv_calendar:index'
 LOGOUT_REDIRECT_URL = 'adv_calendar:index'
 LOGIN_URL = 'accounts:login'
+SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
