@@ -6,9 +6,16 @@
 
 {% block content %}
 <div class="img-thumbnail">
-<figure class="figure">
-<img src="{% static 'photos/Reward_1.jpg' %}" class="figure-img img-fluid rounded" alt="Hollywood Sign on The Hill"/>
-<figcaption class="figure-caption">its our foto</figure>
-</figure>
+  {% if day.award_quote %}
+    <p>{{ day.award_quote }}</p>
+  {% elif day.award_image %}
+    {% with "photos/"|add:day.award_image as img_src %}
+      <img src="{% static img_src  %}" class="figure-img img-fluid rounded" alt=""/>
+    {% endwith %}
+  {% elif day.award_link %}
+    <div class="ratio ratio-16x9">
+      <iframe src="{{ day.award_link }}" title="YouTube video" allowfullscreen></iframe>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
