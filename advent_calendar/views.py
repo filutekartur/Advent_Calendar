@@ -21,3 +21,11 @@ def day(request,d):
                 day = Day.objects.get(day=d)
                 context = {'day': day}
                 return render(request,"advent_calendar/day.html",context)
+@login_required
+def review(request):
+        if request.user.username == 'admin':
+                days = Day.objects.order_by('day')
+                context = {'days': days}
+                return render(request,"advent_calendar/review.html",context)
+        else:
+               return redirect("adv_calendar:indes")
