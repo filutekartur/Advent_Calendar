@@ -1,0 +1,32 @@
+{% extends "advent_calendar/base.html" %}
+{% load static %}
+{% block page_header %}
+  <h1 class="display-5 text-center">List of rewards</h1>
+{% endblock page_header %}
+
+{% block content %}
+<div class="img-thumbnail">
+  <div class="table-responsive small">
+    <table class="table table-striped table-sm table-bordered">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">Day</th>
+          <th scope="col">Award_quote</th>
+          <th scope="col">Award_image</th>
+          <th scope="col">Award_link</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for day in days %}
+          <tr>
+            <td>{{day.day}}</td>
+            <td>{{day.award_quote}}</td>
+            <td>{{day.award_image}}</td>
+            <td>{{day.award_link}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
