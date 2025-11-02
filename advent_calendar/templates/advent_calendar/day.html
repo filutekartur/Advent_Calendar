@@ -1,5 +1,6 @@
 {% extends "advent_calendar/base.html" %}
 {% load static %}
+{% load adv_cal_tags %}
 {% block page_header %}
   <h1 class="display-5 text-center">Your reward</h1>
 {% endblock page_header %}
@@ -9,7 +10,14 @@
 <div class="img-thumbnail">
     <div class="p-3 shadow bg-white rounded">
         {% if day.award_quote %}
-            <p>{{ day.award_quote }}</p>
+            <figure>
+                <blockquote class="blockquote">
+                    <p>&rdquo;{{ day.award_quote|slice_to_dot_lr:"l" }}&rdquo;</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    {{ day.award_quote|slice_to_dot_lr:"r" }}
+                </figcaption>
+            </figure>
         {% elif day.award_image %}
             {% with "photos/"|add:day.award_image as img_src %}
                 <img src="{% static img_src  %}" class="figure-img img-fluid rounded-3" alt=""/>
