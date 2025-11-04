@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Day
 from django.contrib.auth.decorators import login_required
-import datetime
+from django.utils import timezone
 # Create your views here.
 
 
@@ -14,8 +14,8 @@ def calendar(request):
         return render(request,"advent_calendar/calendar.html",context)
 @login_required
 def day(request,d):
-        if(0):
-        #if(d>datetime.datetime.now().day): # correct if statement: uncomment on production enviroment
+        #if(0):
+        if(d>timezone.now().day and request.user.username != 'admin'): # correct if statement: uncomment on production enviroment
                 return redirect("adv_calendar:calendar")
         else:
                 day = Day.objects.get(day=d)
