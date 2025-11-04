@@ -1,5 +1,6 @@
 {% extends "advent_calendar/base.html" %}
 {% load static %}
+{% load tz %}
 {% block page_header %}
   <h1 class="display-5 text-center">List of rewards</h1>
 {% endblock page_header %}
@@ -25,7 +26,7 @@
           <tr>
           {% endif %}
             <td>{{day.day}}</td>
-            <td>{{day.open_date|timezone:"Europte/Warsaw"|date:"Y-m-d H:i:s e"}}</td>
+            <td>{{day.open_date|timezone:"Europe/Warsaw"|date:"Y-m-d H:i:s e"}}</td>
             <td>{{day.award_quote}}</td>
             <td>{{day.award_image}}</td>
             <td>{{day.award_link}}</td>
