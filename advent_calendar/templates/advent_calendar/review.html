@@ -11,6 +11,7 @@
       <thead>
         <tr class="table-dark">
           <th scope="col">Day</th>
+          <th scope="col">Open_date</th>
           <th scope="col">Award_quote</th>
           <th scope="col">Award_image</th>
           <th scope="col">Award_link</th>
@@ -20,6 +21,7 @@
         {% for day in days %}
           <tr>
             <td>{{day.day}}</td>
+            <td>{{day.open_date|timezone:"Europte/Warsaw"|date:"Y-m-d H:i:s e"}}</td>
             <td>{{day.award_quote}}</td>
             <td>{{day.award_image}}</td>
             <td>{{day.award_link}}</td>
