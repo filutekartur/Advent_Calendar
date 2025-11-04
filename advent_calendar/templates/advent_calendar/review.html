@@ -19,7 +19,11 @@
       </thead>
       <tbody>
         {% for day in days %}
+          {% if day.open_date %}
+          <tr class="table-success">
+          {% else %}
           <tr>
+          {% endif %}
             <td>{{day.day}}</td>
             <td>{{day.open_date|timezone:"Europte/Warsaw"|date:"Y-m-d H:i:s e"}}</td>
             <td>{{day.award_quote}}</td>
