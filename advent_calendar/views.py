@@ -19,6 +19,9 @@ def day(request,d):
                 return redirect("adv_calendar:calendar")
         else:
                 day = Day.objects.get(day=d)
+                if request.user.username !='admin' and not day.open_date:
+                       day.open_date = timezone.now()
+                       day.save()
                 context = {'day': day}
                 return render(request,"advent_calendar/day.html",context)
 @login_required
