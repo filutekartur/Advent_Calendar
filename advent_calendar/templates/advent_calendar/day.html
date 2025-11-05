@@ -18,9 +18,9 @@
                     {{ day.award_quote|slice_to_dot_lr:"r" }}
                 </figcaption>
             </figure>
-        {% elif day.award_image %}
-            {% with "media/"|add:day.award_image as img_src %}
-                <img src="{% static img_src  %}" class="figure-img img-fluid rounded-3" alt=""/>
+        {% elif day.award_media %}
+            {% with "media/"|add:day.award_media as media_src %}
+                <img src="{% static media_src  %}" class="figure-img img-fluid rounded-3" alt=""/>
             {% endwith %}
         {% elif day.award_link %}
             <div class="ratio ratio-16x9">
