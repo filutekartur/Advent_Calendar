@@ -20,7 +20,13 @@
             </figure>
         {% elif day.award_media %}
             {% with "media/"|add:day.award_media as media_src %}
-                <img src="{% static media_src  %}" class="figure-img img-fluid rounded-3" alt=""/>
+                {% if day.award_media|slice_to_dot_lr:"r" == "jpg" %}
+                    <img src="{% static media_src  %}" class="figure-img img-fluid rounded-3" alt=""/>
+                {% elif day.award_media|slice_to_dot_lr:"r" == "mp4" %}
+                    <video name="video" controls width="50%" height="40%">
+                        <source src="{% static media_src  %}" type="video/mp4"></source>
+                    </video>
+                {% endif %}
             {% endwith %}
         {% elif day.award_link %}
             <div class="ratio ratio-16x9">
