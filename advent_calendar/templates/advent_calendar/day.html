@@ -19,7 +19,7 @@
                 </figcaption>
             </figure>
         {% elif day.award_image %}
-            {% with "photos/"|add:day.award_image as img_src %}
+            {% with "media/"|add:day.award_image as img_src %}
                 <img src="{% static img_src  %}" class="figure-img img-fluid rounded-3" alt=""/>
             {% endwith %}
         {% elif day.award_link %}
