@@ -19,7 +19,7 @@
                 </figcaption>
             </figure>
         {% elif day.award_media %}
-            {% with "media/"|add:day.award_media as media_src %}
+            {% with "advent_calendar/media/"|add:day.award_media as media_src %}
                 {% if day.award_media|slice_to_dot_lr:"r" == "jpg" %}
                     <img src="{% static media_src  %}" class="figure-img img-fluid rounded-3" alt=""/>
                 {% elif day.award_media|slice_to_dot_lr:"r" == "mp4" %}
