@@ -12,7 +12,9 @@
       <div class="card">
         <a href="{% url 'adv_calendar:day' day.day %}">
         {% with day.day|stringformat:'s'|add:'.png' as img_src %}
-        <img src="{% static advent_calendar/img_src %}" class="card-img-top" alt="day.day">
+        {% with "advent_calendar/"|add:img_src as img_source%}
+          <img src="{% static img_source %}" class="card-img-top" alt="day.day">
+        {% endwith %}
         {% endwith %}
         </a>
       </div>
