@@ -31,4 +31,4 @@ def review(request):
                 context = {'days': days}
                 return render(request,"advent_calendar/review.html",context)
         else:
-               return redirect("adv_calendar:indes")
+               return redirect("adv_calendar:index")
