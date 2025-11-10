@@ -4,3 +4,4 @@ __pycache__/
 .env
 static/
 !advent_calendar/static
+media/
