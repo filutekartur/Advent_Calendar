@@ -26,7 +26,11 @@
           {% else %}
           <tr>
           {% endif %}
-            <td>{{day.day}}</td>
+            <td>
+              <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"  href="{% url 'adv_calendar:day' day.day %}">
+                {{day.day}}
+              </a>
+            </td>
             <td>{{day.open_date|timezone:"Europe/Warsaw"|date:"Y-m-d H:i:s e"}}</td>
             <td>{{day.award_quote}}</td>
             <td>{{day.award_media}}</td>
@@ -39,3 +43,5 @@
   </div>
 </div>
 {% endblock %}
+        <a href="{% url 'adv_calendar:day' day.day %}">
+        </a>
