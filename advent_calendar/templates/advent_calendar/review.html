@@ -21,11 +21,7 @@
       </thead>
       <tbody>
         {% for day in days %}
-          {% if day.open_date %}
-          <tr class="table-success">
-          {% else %}
-          <tr>
-          {% endif %}
+          <tr {% if day.open_date %} class="table-success" {% endif %}>
             <td>
               <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"  href="{% url 'adv_calendar:day' day.day %}">
                 {{day.day}}
