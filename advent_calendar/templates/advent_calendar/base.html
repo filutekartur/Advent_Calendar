@@ -33,23 +33,19 @@
     </div>
     
     <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+      <li class="nav-item">
       {% if user.is_authenticated %}
-        <li class="nav-item">
           <span class="navbar-text me-2">Hello, {{ user.username }}.</span>
-        </li>
       {% else %}
-        <li class="nav-item">
           <a class="nav-link" href="{% url 'accounts:login' %}">Log in</a>
-        </li>
       {% endif %}
-
+      </li>
       {% if user.is_authenticated %}
           <form action="{% url 'accounts:logout' %}" method='post'>
             {% csrf_token %}
             <button name='submit' class='btn btn-outline-secondary btn-sm'>Log out</button>
           </form>
-        {% endif %}
-
+      {% endif %}
     </ul>
   </div>
 </nav>
